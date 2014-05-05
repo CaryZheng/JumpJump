@@ -25,7 +25,7 @@ const int ZORDER_SCORE_TEXT = 10;
 const int ZORDER_MISS_WIDGET = 11;
 
 const int BODY_COLLISION_GROUP = 100;
-const int BODY_UNCOLLISION_GROUP = 101;
+const int BODY_UNCOLLISION_GROUP = -1;
 
 const int TAG_GAME_BKG = 1000;
 
@@ -121,14 +121,14 @@ bool GameLayer::init()
     
     this->addChild(player, ZORDER_PLAYER);
 
-    auto bodyContactListener = EventListenerPhysicsContactWithGroup::create(BODY_UNCOLLISION_GROUP);
-    bodyContactListener->onContactBegin = [](PhysicsContact& contact){
-        
-        CCLOG("BODY_UNCOLLISION_GROUP onContactBegin");
-        
-        return false;
-    };
-    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(bodyContactListener, this);
+//    auto bodyContactListener = EventListenerPhysicsContactWithGroup::create(BODY_UNCOLLISION_GROUP);
+//    bodyContactListener->onContactBegin = [](PhysicsContact& contact){
+//        
+//        CCLOG("BODY_UNCOLLISION_GROUP onContactBegin");
+//        
+//        return false;
+//    };
+//    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(bodyContactListener, this);
     
     auto touchListener = EventListenerTouchOneByOne::create();
     touchListener->setSwallowTouches(true);
@@ -261,6 +261,7 @@ bool GameLayer::init()
                     
                     auto featherBody = PhysicsBody::createCircle(10.0f);
                     featherBody->setGroup(BODY_UNCOLLISION_GROUP);
+                    featherBody->setCollisionBitmask(0);
                     feather->setPhysicsBody(featherBody);
                     Vect featherVect(0, 10.0f);
                     featherVect = featherVect * velFactor;
