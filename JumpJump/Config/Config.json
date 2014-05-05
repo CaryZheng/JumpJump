@@ -1,0 +1,45 @@
+{
+	"GameDifficulty" : 
+	{
+		"level_1" : 
+		{
+			"rate2" : 0,
+			"rate3" : 0
+		},
+		"level_2" : 
+		{
+			"rate2" : 0.1,
+			"rate3" : 0
+		},
+		"level_3" : 
+		{
+			"rate2" : 0.2,
+			"rate3" : 0
+		},
+		"level_4" : 
+		{
+			"rate2" : 0.3,
+			"rate3" : 0.1
+		},
+		"level_5" : 
+		{
+			"rate2" : 0.4,
+			"rate3" : 0.1
+		},
+		"level_6" : 
+		{
+			"rate2" : 0.4,
+			"rate3" : 0.2
+		},
+		"level_7" : 
+		{
+			"rate2" : 0.5,
+			"rate3" : 0.2
+		},
+		"level_max" : 
+		{
+			"rate2" : 0.6,
+			"rate3" : 0.3
+		}
+	}
+}
